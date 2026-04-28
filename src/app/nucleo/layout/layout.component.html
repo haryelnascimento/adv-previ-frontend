@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="logo">
+      <mat-icon>balance</mat-icon>
+      <span>PrevidApp</span>
+    </div>
+
+    <mat-nav-list>
+      @for (item of itensMenu; track item.rota) {
+        <a mat-list-item
+           [routerLink]="item.rota"
+           routerLinkActive="ativo">
+          <mat-icon matListItemIcon>{{ item.icone }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Escritório de Advocacia Previdenciária</span>
+    </mat-toolbar>
+
+    <main class="conteudo">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
